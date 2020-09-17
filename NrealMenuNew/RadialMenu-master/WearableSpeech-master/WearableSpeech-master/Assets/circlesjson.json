@@ -1,0 +1,99 @@
+{
+    "mainCircles":
+    [
+        {"id":1, "name":"McDonald's"},
+        {"id":2, "name":"Food & Beverages"},
+        {"id":3, "name":"Driver"},
+        {"id":4, "name":"Text Message"},
+        {"id":5, "name":"Driver"}
+    ],
+    "innerCircles":
+    [
+        {
+            "id":1,"main_id":1, "name":"Greetings"
+        },
+        {
+            "id":2,"main_id":1, "name":"Burgers Beef"
+        },
+        {
+            "id":3,"main_id":1, "name":"Burgers Chicken"
+        },
+        {
+            "id":4,"main_id":1, "name":"Payment"
+        }
+    ],
+  "circleFields": [
+    {
+      "id": 1,
+      "value": "Hello",
+      "main_id": 1,
+      "innercircle_id": 1
+    },
+    {
+      "id": 2,
+      "value": "Good morning",
+      "main_id": 1,
+      "innercircle_id": 1
+    },
+    {
+      "id": 3,
+      "value": "Good afternoon",
+      "main_id": 1,
+      "innercircle_id": 1
+    },
+    {
+      "id": 4,
+      "value": "Good evening",
+      "main_id": 1,
+      "innercircle_id": 1
+    },
+    {
+      "id": 5,
+      "value": "How are you doing?",
+      "main_id": 1,
+      "innercircle_id": 1
+    },
+    {
+      "id": 6,
+      "value": "How's its going",
+      "main_id": 1,
+      "innercircle_id": 1
+    },
+    {
+      "id": 7,
+      "value": "I would like a Big Mac",
+      "main_id": 1,
+      "innercircle_id": 2
+    },
+    {
+      "id": 8,
+      "value": "I would like a Hamburger",
+      "main_id": 1,
+      "innercircle_id": 2
+    },
+    {
+      "id": 9,
+      "value": "I would like a Cheeseburger",
+      "main_id": 1,
+      "innercircle_id": 2
+    },
+    {
+      "id": 10,
+      "value": "I would like a Big Mac Bacon",
+      "main_id": 1,
+      "innercircle_id": 2
+    },
+    {
+      "id": 11,
+      "value": "I would like a Big McDouble",
+      "main_id": 1,
+      "innercircle_id": 2
+    },
+    {
+      "id": 12,
+      "value": "I would like a Quarter Pounder with Cheese",
+      "main_id": 1,
+      "innercircle_id": 2
+    }
+  ]
+}
