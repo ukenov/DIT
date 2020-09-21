@@ -10,8 +10,7 @@ public class ButtonClick : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     private float secondsCount;
     private bool conditionForTime;
 
-    //[SerializeField] Image CircleImage;
-
+    private GameObject circleImage;
 
     void Update()
     {
@@ -20,6 +19,7 @@ public class ButtonClick : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     void Awake()
     {
+        circleImage = GameObject.Find("circleImage");
         mbutton = transform.GetComponent<Button>();
     }
 
@@ -29,19 +29,19 @@ public class ButtonClick : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         //mbutton.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
 
-    //when pointer hover, set the cube color to green
+    //when pointer enter hover start timer
     public void OnPointerEnter(PointerEventData eventData)
     {
         conditionForTime = true;
         StartCoroutine(ExecuteAfterTime(2));
-
     }
 
-    //when pointer exit hover, set the cube color to white
+    //when pointer exit hover stop timer, drop to 0s
     public void OnPointerExit(PointerEventData eventData)
     {
         secondsCount = 0;
         conditionForTime = false;
+        circleImage.GetComponent<Image>().fillAmount = 0;
     }
 
     public void UpdateTimer()
@@ -49,8 +49,7 @@ public class ButtonClick : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         if (conditionForTime)
         {
             secondsCount += Time.deltaTime;
-            //CircleImage.fillAmount = secondsCount / 2;
-            //Debug.Log(secondsCount);
+            circleImage.GetComponent<Image>().fillAmount = secondsCount / 2;
         }
     }
 

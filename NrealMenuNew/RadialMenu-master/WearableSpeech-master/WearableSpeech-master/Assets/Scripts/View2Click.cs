@@ -50,12 +50,36 @@ public class View2Click : MonoBehaviour
             }
         }
 
-        FirstBtnInfo.UpdateText(FieldsList[0]);
-        SecondBtnInfo.UpdateText(FieldsList[1]);
-        ThirdBtnInfo.UpdateText(FieldsList[2]);
-        FourthBtnInfo.UpdateText(FieldsList[3]);
-        FifthBtnInfo.UpdateText(FieldsList[4]);
-        SixthBtnInfo.UpdateText(FieldsList[5]);
+        FirstBtnInfo.UpdateText(TrimText(FieldsList[0]));
+        SecondBtnInfo.UpdateText(TrimText(FieldsList[1]));
+        ThirdBtnInfo.UpdateText(TrimText(FieldsList[2]));
+        FourthBtnInfo.UpdateText(TrimText(FieldsList[3]));
+        FifthBtnInfo.UpdateText(TrimText(FieldsList[4]));
+        SixthBtnInfo.UpdateText(TrimText(FieldsList[5]));
     }
     
+    private string TrimText(string newText)
+    {
+        string text = newText;
+        if (newText.Contains(" "))
+        {
+            text = "";
+            int count = 0;
+            foreach (char letter in newText)
+            {
+                if (letter == ' ' && count > 3)
+                {
+                    text += '\n';
+                    count = 0;
+                }
+                else
+                {
+                    text += letter;
+                    count++;
+                }
+            }
+        }
+
+        return text;
+    }
 }

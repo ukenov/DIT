@@ -94,6 +94,42 @@
       "value": "I would like a Quarter Pounder with Cheese",
       "main_id": 1,
       "innercircle_id": 2
+    },
+    {
+      "id": 13,
+      "value": "I will pay by credit card",
+      "main_id": 1,
+      "innercircle_id": 4
+    },
+    {
+      "id": 14,
+      "value": "I will pay by cash",
+      "main_id": 1,
+      "innercircle_id": 4
+    },
+    {
+      "id": 15,
+      "value": "to go",
+      "main_id": 1,
+      "innercircle_id": 4
+    },
+    {
+      "id": 16,
+      "value": "eat in",
+      "main_id": 1,
+      "innercircle_id": 4
+    },
+    {
+      "id": 17,
+      "value": "small",
+      "main_id": 1,
+      "innercircle_id": 4
+    },
+    {
+      "id": 18,
+      "value": "large",
+      "main_id": 1,
+      "innercircle_id": 4
     }
   ]
 }
