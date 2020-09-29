@@ -40,36 +40,41 @@ public class ScrollerView : MonoBehaviour
      public void ButtonClicked(string str)
     {
         Debug.Log(str + " button clicked.");
-        Scroller_Title.GetComponent<Text>().text = str;
-
-        string path = Application.dataPath + "/circlesjson.json";
-        string jsonString = File.ReadAllText(path);
-        JSONObject circleJson = (JSONObject)JSON.Parse(jsonString);
-
-        for (int i = 0; i < circleJson["mainCircles"].Count; i++)
+        if(Scroller_Title.GetComponent<Text>().text != str)
         {
-            if (circleJson["mainCircles"][i]["name"] == str)
+            Scroller_Title.GetComponent<Text>().text = str;
+
+            string path = Application.dataPath + "/circlesjson.json";
+            string jsonString = File.ReadAllText(path);
+            JSONObject circleJson = (JSONObject)JSON.Parse(jsonString);
+
+            for (int i = 0; i < circleJson["mainCircles"].Count; i++)
             {
-                DB.mainCircleId = circleJson["mainCircles"][i]["id"].AsInt;
+                if (circleJson["mainCircles"][i]["name"] == str)
+                {
+                    DB.mainCircleId = circleJson["mainCircles"][i]["id"].AsInt;
+                }
             }
-        }
 
-        for (int i = 0; i < circleJson["innerCircles"].Count; i++)
-        {
-            if (circleJson["innerCircles"][i]["main_id"] == DB.mainCircleId)
+            for (int i = 0; i < circleJson["innerCircles"].Count; i++)
             {
-                InnerCirclesList.Add(circleJson["innerCircles"][i]["name"]);
-                Debug.Log(circleJson["innerCircles"][i]["name"]);
+                if (circleJson["innerCircles"][i]["main_id"] == DB.mainCircleId)
+                {
+                    InnerCirclesList.Add(circleJson["innerCircles"][i]["name"]);
+                    Debug.Log(circleJson["innerCircles"][i]["name"]);
+                }
             }
-        }
 
-        foreach (string item in InnerCirclesList)
-        {
-            go = Instantiate(Button_Template2) as GameObject;
-            go.SetActive(true);
-            ScrollerButton TB = go.GetComponent<ScrollerButton>();
-            TB.SetName(item);
-            go.transform.SetParent(Button_Template2.transform.parent);
+            foreach (string item in InnerCirclesList)
+            {
+                go = Instantiate(Button_Template2) as GameObject;
+                go.SetActive(true);
+                ScrollerButton TB = go.GetComponent<ScrollerButton>();
+                TB.SetName(item);
+                go.transform.SetParent(Button_Template2.transform.parent);
+                go.transform.position = Button_Template2.transform.position;
+                go.transform.rotation = Button_Template2.transform.rotation;
+            }
         }
     }
 }
